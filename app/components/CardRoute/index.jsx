@@ -13,10 +13,10 @@ const CardRoute = ({ title, imageURL, routePath }) => (
           <figure className="image is-128x128">
             <img
               alt="route"
-              loading="lazy"
               src={imageURL}
               width="128px"
               height="128px"
+              loading="lazy"
             />
           </figure>
         </div>

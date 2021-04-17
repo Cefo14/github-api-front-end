@@ -5,7 +5,7 @@ const styles = css`
     padding: 32px;
     border-radius: 16px;
     width: 100%;
-    max-width: 350px;
+    max-width: 300px;
   }
 
   .card-route__card:hover {
