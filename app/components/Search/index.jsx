@@ -20,7 +20,7 @@ const Search = ({
       data-testid="Search"
       className="search__container"
     >
-      <div>
+      <div className="search__header">
         <button
           data-testid="Search-GoBack"
           type="button"
