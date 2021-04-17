@@ -17,6 +17,12 @@ const styles = css`
     justify-content: center;
     padding-bottom: 24px;
   }
+
+  .card-route__card-avatar-container img {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+  }
 `;
 
 export default styles;
