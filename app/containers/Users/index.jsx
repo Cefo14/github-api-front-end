@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useContext } from 'react';
 import { useRouter } from 'next/router';
 
 import Search from '../../components/Search';
@@ -10,7 +10,8 @@ import * as GithubApi from '../../api/github';
 
 import useLoading from '../../hooks/useLoading';
 import useDebounce from '../../hooks/useDebounce';
-import useSearch from '../../hooks/useSearch';
+
+import { UsersContext } from '../../contexts/Users';
 
 import styles from './styles';
 
@@ -21,17 +22,17 @@ const Users = () => {
 
   const {
     search,
-    items: users,
-    setItems: setUsers,
-    totalItems: totalUsers,
-    setTotalItems: setTotalUsers,
+    users,
+    setUsers,
+    totalUsers,
+    setTotalUsers,
     currentPage,
     setCurrentPage,
-    haveItems: haveUsers,
+    haveUsers,
     onChangeSearch,
     onPrevPage,
     onNextPage,
-  } = useSearch();
+  } = useContext(UsersContext);
 
   const debounceSearch = useDebounce(search);
 

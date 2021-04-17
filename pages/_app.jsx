@@ -2,10 +2,14 @@
 /* eslint-disable react/prop-types */
 
 import React from 'react';
+
+import { UsersContextProvider } from '../app/contexts/Users';
 import '../styles/globals.css';
 
 const App = ({ Component, pageProps }) => (
-  <Component {...pageProps} />
+  <UsersContextProvider>
+    <Component {...pageProps} />
+  </UsersContextProvider>
 );
 
 export default App;
