@@ -30,6 +30,21 @@ const styles = css`
     display: block;
   }
 
+  .github-card__user-name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .github-card__description {
+    display: block;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    height: 9rem;
+  }
+
   .github-card__repository-info {
     padding-bottom: 16px;
   }

@@ -4,11 +4,15 @@
 import React from 'react';
 
 import { UsersContextProvider } from '../app/contexts/Users';
+import { RepositoriesContextProvider } from '../app/contexts/Repositories';
+
 import '../styles/globals.css';
 
 const App = ({ Component, pageProps }) => (
   <UsersContextProvider>
-    <Component {...pageProps} />
+    <RepositoriesContextProvider>
+      <Component {...pageProps} />
+    </RepositoriesContextProvider>
   </UsersContextProvider>
 );
 

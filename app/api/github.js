@@ -54,3 +54,22 @@ export const fetchUsersData = async (users = []) => {
     return users;
   }
 };
+
+export const fetchRepositories = async (query, page, itemsPerPage) => {
+  try {
+    const queryParams = `q=${query}&page=${page}&per_page=${itemsPerPage}`;
+    const url = `${BASE_URL}/search/repositories?${queryParams}`;
+    const { data } = await axios.get(url);
+    return {
+      total_count: data.total_count ?? 0,
+      items: data.items ?? [],
+    };
+  }
+
+  catch (e) {
+    return {
+      total_count: 0,
+      items: [],
+    };
+  }
+};
