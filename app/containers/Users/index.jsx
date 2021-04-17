@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useMemo,
-} from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
 
 import Search from '../../components/Search';
@@ -15,6 +10,7 @@ import * as GithubApi from '../../api/github';
 
 import useLoading from '../../hooks/useLoading';
 import useDebounce from '../../hooks/useDebounce';
+import useSearch from '../../hooks/useSearch';
 
 import styles from './styles';
 
@@ -23,10 +19,21 @@ const MAX_ITEMS_PER_PAGE = 8;
 const Users = () => {
   const router = useRouter();
 
-  const [search, setSearch] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalUsers, setTotalUsers] = useState(1);
-  const [users, setUsers] = useState([]);
+  const {
+    search,
+    items: users,
+    setItems: setUsers,
+    totalItems: totalUsers,
+    setTotalItems: setTotalUsers,
+    currentPage,
+    setCurrentPage,
+    haveItems: haveUsers,
+    onChangeSearch,
+    onPrevPage,
+    onNextPage,
+  } = useSearch();
+
+  const debounceSearch = useDebounce(search);
 
   const {
     isLoading,
@@ -34,27 +41,9 @@ const Users = () => {
     endLoading,
   } = useLoading();
 
-  const debounceSearch = useDebounce(search);
-
-  const haveUsers = useMemo(() => (
-    users && users.length > 0
-  ), [users]);
-
   const onBack = useCallback(() => {
     router.back();
   }, [router]);
-
-  const onChangeSearch = useCallback((event) => {
-    setSearch(event.target.value);
-  }, []);
-
-  const goToPrevPage = useCallback(() => {
-    setCurrentPage(Number.parseInt(currentPage, 10) - 1);
-  }, [currentPage]);
-
-  const goToNextPage = useCallback(() => {
-    setCurrentPage(Number.parseInt(currentPage, 10) + 1);
-  }, [currentPage]);
 
   const fetchUsers = async () => {
     startLoading();
@@ -113,8 +102,8 @@ const Users = () => {
                 currentPage={currentPage}
                 totalItems={totalUsers}
                 itemsPerPage={MAX_ITEMS_PER_PAGE}
-                onPrevPage={goToPrevPage}
-                onNextPage={goToNextPage}
+                onPrevPage={onPrevPage}
+                onNextPage={onNextPage}
                 disabled={isLoading}
               />
             </div>
