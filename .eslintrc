@@ -1,0 +1,16 @@
+{
+  "extends": ["airbnb"],
+  "plugins": ["react"],
+  "rules": {
+    "brace-style": "off",
+    "no-underscore-dangle": "off",
+    "import/no-extraneous-dependencies": "off"
+  },
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021
+  }
+}
