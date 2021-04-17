@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import '../styles/globals.css';
+import HomeContainer from '../app/containers/Home';
 
 const Home = () => (
   <>
@@ -9,9 +9,7 @@ const Home = () => (
       <title>Home</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <div>
-      Todo...
-    </div>
+    <HomeContainer />
   </>
 );
 
