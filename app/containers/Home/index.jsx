@@ -31,7 +31,7 @@ const Home = () => (
           <CardRoute
             title="Buscar Repositorios"
             imageURL={githubRepositoriesImage}
-            routePath="/users"
+            routePath="/repositories"
           />
         </div>
       </div>

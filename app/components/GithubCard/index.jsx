@@ -34,7 +34,7 @@ const GithubCard = ({
           </figure>
         </a>
       </div>
-      <div className="is-size-3 github-card__overflow-text">
+      <div className="is-size-3">
         <a
           href={profileURL}
           target="_blank"
@@ -42,7 +42,7 @@ const GithubCard = ({
           title={`@${userName}`}
         >
           <center>
-            <div>
+            <div className="github-card__user-name">
               { `@${userName}` }
             </div>
           </center>
@@ -110,7 +110,10 @@ const GithubCard = ({
               <div className="is-size-5 has-text-weight-bold">
                 Descripción
               </div>
-              <div className="is-size-6">
+              <div
+                title={description}
+                className="is-size-6 github-card__description"
+              >
                 { description }
               </div>
             </div>

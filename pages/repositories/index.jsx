@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Head from 'next/head';
+import RepositoriesContainer from '../../app/containers/Repositories';
 
 const Repositories = () => (
   <>
@@ -8,7 +9,7 @@ const Repositories = () => (
       <title>Repositorios</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <div>Todo...</div>
+    <RepositoriesContainer />
   </>
 );
 
