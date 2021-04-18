@@ -1,0 +1,20 @@
+{
+  "extends": ["airbnb"],
+  "plugins": [
+    "react",
+    "plugin:cypress/recommended"
+  ],
+  "rules": {
+    "brace-style": "off",
+    "no-underscore-dangle": "off",
+    "import/no-extraneous-dependencies": "off"
+  },
+  "env": {
+    "browser": true,
+    "jest": true,
+    "cypress/globals": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021
+  }
+}
