@@ -1,6 +1,9 @@
 {
   "extends": ["airbnb"],
-  "plugins": ["react"],
+  "plugins": [
+    "react",
+    "plugin:cypress/recommended"
+  ],
   "rules": {
     "brace-style": "off",
     "no-underscore-dangle": "off",
@@ -8,7 +11,8 @@
   },
   "env": {
     "browser": true,
-    "jest": true
+    "jest": true,
+    "cypress/globals": true
   },
   "parserOptions": {
     "ecmaVersion": 2021
