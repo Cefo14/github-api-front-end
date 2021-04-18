@@ -16,6 +16,7 @@ import { RepositoriesContext } from '../../contexts/Repositories';
 import styles from './styles';
 
 const MAX_ITEMS_PER_PAGE = 8;
+let searchPrevent = null;
 
 const Repositories = () => {
   const router = useRouter();
@@ -59,8 +60,13 @@ const Repositories = () => {
     endLoading();
   };
 
+  useEffect(() => () => {
+    searchPrevent = null;
+  }, []);
+
   useEffect(() => {
-    if (search) setCurrentPage(1);
+    if (searchPrevent) setCurrentPage(1);
+    searchPrevent = debounceSearch;
   }, [debounceSearch]);
 
   useEffect(() => {
