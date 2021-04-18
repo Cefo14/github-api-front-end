@@ -16,6 +16,7 @@ import { UsersContext } from '../../contexts/Users';
 import styles from './styles';
 
 const MAX_ITEMS_PER_PAGE = 8;
+let searchPrevent = null;
 
 const Users = () => {
   const router = useRouter();
@@ -56,8 +57,13 @@ const Users = () => {
     endLoading();
   };
 
+  useEffect(() => () => {
+    searchPrevent = null;
+  }, []);
+
   useEffect(() => {
-    setCurrentPage(1);
+    if (searchPrevent) setCurrentPage(1);
+    searchPrevent = debounceSearch;
   }, [debounceSearch]);
 
   useEffect(() => {
