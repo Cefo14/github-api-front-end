@@ -18,6 +18,9 @@ jobs:
           npm install
           npm run test
           npm run dist
+        env:
+          BASE_PATH: /github-api-front-end
+          ASSET_PREFIX: /github-api-front-end
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
